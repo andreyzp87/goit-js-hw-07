@@ -25,16 +25,14 @@ function createBoxes(amount) {
   destroyBoxes();
 
   let size = 30;
+  let boxesHtml = "";
 
   for (let i = 0; i < amount; i += 1) {
-    const div = document.createElement("div");
-    div.style.width = `${size}px`;
-    div.style.height = `${size}px`;
-    div.style.backgroundColor = getRandomHexColor();
-    boxesEl.append(div);
+    boxesHtml += `<div style="width: ${size}px; height: ${size}px; background-color: ${getRandomHexColor()}"></div>`;
     size += 10;
   }
 
+  boxesEl.insertAdjacentHTML("beforeend", boxesHtml);
   inputEl.value = "";
 }
 
